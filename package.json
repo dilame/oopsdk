@@ -1,6 +1,6 @@
 {
   "name": "oopsdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tiny framework for building beautiful OOP SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
