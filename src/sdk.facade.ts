@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { ICommand, SdkCommandInvoker } from './sdk.command-invoker';
+import { SdkCommand, SdkCommandInvoker } from './sdk.command-invoker';
 import { Constructor, OopsdkFactoryInput } from './sdk.factory';
 
 /**
@@ -9,7 +9,7 @@ import { Constructor, OopsdkFactoryInput } from './sdk.factory';
 export class SdkFacade {
   constructor(private commandInvoker: SdkCommandInvoker) {}
 
-  command<C extends ICommand>(Command: Constructor<C>) {
+  command<C extends SdkCommand>(Command: Constructor<C>) {
     return (input?: OopsdkFactoryInput<C>) => this.commandInvoker.execute(Command, input);
   }
 }

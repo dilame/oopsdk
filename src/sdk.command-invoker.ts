@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { Constructor, OopsdkFactoryInput, SdkFactory } from './sdk.factory';
 
-export interface ICommand {
+export interface SdkCommand {
   execute(): any;
 }
 
@@ -9,7 +9,7 @@ export interface ICommand {
 export class SdkCommandInvoker {
   constructor(private factory: SdkFactory) {}
 
-  execute<T extends ICommand>(cls: Constructor<T>, input?: OopsdkFactoryInput<T>): ReturnType<T['execute']> {
+  execute<T extends SdkCommand>(cls: Constructor<T>, input?: OopsdkFactoryInput<T>): ReturnType<T['execute']> {
     const classObj = this.factory.instantiate(cls, input);
     return classObj.execute();
   }
