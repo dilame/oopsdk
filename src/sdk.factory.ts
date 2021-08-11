@@ -1,5 +1,5 @@
 import { Container, injectable } from 'inversify';
-import { INPUT_IDENTIFIER } from './sdk.input.decorator';
+import { INPUT_IDENTIFIER } from './decorators';
 
 export type OopsdkFactoryInput<T> = T extends Inputable<infer Input> ? Input : never;
 export type Constructor<T> = { new (...args: any[]): T };
